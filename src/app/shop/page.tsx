@@ -7,6 +7,8 @@ export const metadata = {
   description: "Browse our curated collection of clothing and jewelry.",
 };
 
+export const dynamic = "force-dynamic";
+
 interface ShopPageProps {
   searchParams: Promise<{
     category?: string;

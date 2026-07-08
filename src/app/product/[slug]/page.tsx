@@ -12,6 +12,8 @@ import { StarRating } from "@/components/StarRating";
 import { ProductCard } from "@/components/ProductCard";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 interface Props {
   params: Promise<{ slug: string }>;
 }

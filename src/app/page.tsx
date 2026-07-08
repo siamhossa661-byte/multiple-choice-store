@@ -3,6 +3,8 @@ import Link from "next/link";
 import { getProducts, getCategories, getReviewStatsForProducts } from "@/lib/queries";
 import { ProductCard } from "@/components/ProductCard";
 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const [productsData, categoriesData] = await Promise.all([
     getProducts(),
