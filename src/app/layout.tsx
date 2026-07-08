@@ -5,6 +5,7 @@ import { CartProvider } from "@/components/CartProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CartDrawer } from "@/components/CartDrawer";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Multiple Choice — Curated Fashion & Jewelry",
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Footer />
           <CartDrawer />
         </CartProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
