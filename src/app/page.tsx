@@ -29,7 +29,7 @@ export default async function HomePage() {
       {/* Announcement Bar */}
       <div className="bg-warm-900 text-cream text-center py-2.5">
         <p className="text-xs tracking-[0.2em] uppercase">
-          ঢাকায় ডেলিভারি ৳60 ✦ সারাদেশে ডেলিভারি ৳120
+          🎉 প্রথম ৫টি অর্ডারে ফ্রি ডেলিভারি! ✦ ঢাকায় ৳80 ✦ সারাদেশে ৳130
         </p>
       </div>
 
@@ -358,7 +358,7 @@ export default async function HomePage() {
                 সারাদেশে ডেলিভারি
               </h3>
               <p className="text-sm text-warm-500 leading-relaxed">
-                ঢাকায় ৳60, সারাদেশে ৳120। Cash on Delivery, bKash, Nagad, Rocket
+                ঢাকায় ৳80, সারাদেশে ৳130। প্রথম ৫টি অর্ডারে ফ্রি ডেলিভারি! Cash on Delivery, bKash, Nagad, Rocket
                 এ পেমেন্ট করুন।
               </p>
             </div>

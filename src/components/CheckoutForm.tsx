@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCart } from "@/components/CartProvider";
 
 type Step = "information" | "payment" | "complete";
@@ -12,6 +12,7 @@ export function CheckoutForm() {
   const { items, subtotal, clearCart } = useCart();
   const [step, setStep] = useState<Step>("information");
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("cod");
+  const [freeDelivery, setFreeDelivery] = useState({ isFreeDeliveryActive: false, freeSlotsLeft: 0 });
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -24,8 +25,17 @@ export function CheckoutForm() {
   const [orderNum, setOrderNum] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
-  // Shipping cost based on location
-  const shipping = form.city.toLowerCase().includes("dhaka") ? 60 : 120;
+  // Fetch free delivery status
+  useEffect(() => {
+    fetch("/api/free-delivery-status")
+      .then((res) => res.json())
+      .then((data) => setFreeDelivery(data))
+      .catch(() => {});
+  }, []);
+
+  // Shipping cost: Dhaka 80, outside 130, FREE for first 5 orders
+  const baseShipping = form.city.toLowerCase().includes("dhaka") ? 80 : 130;
+  const shipping = freeDelivery.isFreeDeliveryActive ? 0 : baseShipping;
   const total = subtotal + shipping;
 
   const updateField = (field: string, value: string) =>
@@ -128,6 +138,18 @@ export function CheckoutForm() {
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
       {/* Form */}
       <div className="lg:col-span-3 space-y-8">
+        {/* Free Delivery Banner */}
+        {freeDelivery.isFreeDeliveryActive && (
+          <div className="bg-green-600 text-white p-4 rounded-lg text-center animate-fade-in">
+            <p className="font-medium text-sm">
+              🎉 প্রথম ৫ জন কাস্টমারের জন্য <span className="font-bold">ফ্রি ডেলিভারি!</span>
+            </p>
+            <p className="text-xs text-green-100 mt-1">
+              {freeDelivery.freeSlotsLeft}টি ফ্রি ডেলিভারি স্লট বাকি আছে
+            </p>
+          </div>
+        )}
+
         {/* Steps */}
         <div className="flex items-center gap-2 text-xs tracking-widest uppercase text-warm-500">
           <span
@@ -218,17 +240,28 @@ export function CheckoutForm() {
               </div>
             </div>
 
-            <div className="bg-warm-100 p-4 rounded-lg">
-              <p className="text-sm text-warm-700">
-                <span className="font-medium">ডেলিভারি চার্জ:</span>{" "}
-                {form.city ? (
-                  <>
-                    ৳{shipping} ({form.city.toLowerCase().includes("dhaka") ? "ঢাকার ভিতরে" : "ঢাকার বাইরে"})
-                  </>
-                ) : (
-                  "শহর নির্বাচন করুন"
-                )}
-              </p>
+            <div className={`p-4 rounded-lg ${freeDelivery.isFreeDeliveryActive ? "bg-green-50 border border-green-200" : "bg-warm-100"}`}>
+              {freeDelivery.isFreeDeliveryActive && form.city ? (
+                <div>
+                  <p className="text-sm text-green-800 font-medium">
+                    🎉 ডেলিভারি চার্জ: <span className="line-through">৳{baseShipping}</span> <span className="text-green-600 font-bold">FREE!</span>
+                  </p>
+                  <p className="text-xs text-green-600 mt-1">
+                    আপনি প্রথম ৫ জন কাস্টমারের একজন — ফ্রি ডেলিভারি পাচ্ছেন!
+                  </p>
+                </div>
+              ) : (
+                <p className="text-sm text-warm-700">
+                  <span className="font-medium">ডেলিভারি চার্জ:</span>{" "}
+                  {form.city ? (
+                    <>
+                      ৳{baseShipping} ({form.city.toLowerCase().includes("dhaka") ? "ঢাকার ভিতরে ৳80" : "ঢাকার বাইরে ৳130"})
+                    </>
+                  ) : (
+                    "শহর নির্বাচন করুন"
+                  )}
+                </p>
+              )}
             </div>
 
             <button
@@ -461,7 +494,16 @@ export function CheckoutForm() {
             <div className="flex justify-between text-sm">
               <span className="text-warm-600">Delivery</span>
               <span className="text-warm-900">
-                {form.city ? `৳${shipping}` : "—"}
+                {form.city ? (
+                  freeDelivery.isFreeDeliveryActive ? (
+                    <span>
+                      <span className="line-through text-warm-400 mr-1">৳{baseShipping}</span>
+                      <span className="text-green-600 font-bold">FREE</span>
+                    </span>
+                  ) : (
+                    `৳${shipping}`
+                  )
+                ) : "—"}
               </span>
             </div>
             <div className="border-t border-warm-200 pt-3 flex justify-between">
