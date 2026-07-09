@@ -9,9 +9,12 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.EMAIL_USER || "siamhossa661@gmail.com",
-    pass: process.env.EMAIL_PASS || "nzrehmbcvmuxvsry",
+    pass: process.env.EMAIL_PASS || "nzre hmbc vmux vsry",
   },
 });
+
+// Verify connection on startup
+transporter.verify().catch(() => {});
 
 interface CartItem {
   productId: number;
@@ -22,16 +25,9 @@ interface CartItem {
   color?: string;
 }
 
-async function sendOrderEmail(body: any, orderNumber: string) {
+async function sendOrderEmail(body: any, orderNumber: string): Promise<boolean> {
   try {
-
     const items: CartItem[] = body.items || [];
-    const itemsList = items
-      .map(
-        (item) =>
-          `${item.quantity}× ${item.name}${item.size ? ` (Size: ${item.size})` : ""}${item.color ? ` (Color: ${item.color})` : ""} — ৳${item.price * item.quantity}`
-      )
-      .join("\n");
 
     const paymentMethodLabels: Record<string, string> = {
       cod: "Cash on Delivery",
@@ -97,17 +93,18 @@ async function sendOrderEmail(body: any, orderNumber: string) {
       </div>
     `;
 
-    await transporter.sendMail({
-      from: `"Multiple Choice Store" <${process.env.EMAIL_USER || "siamhossa661@gmail.com"}>`,
+    const info = await transporter.sendMail({
+      from: `"Multiple Choice Store" <siamhossa661@gmail.com>`,
       to: "siamhossa661@gmail.com",
       subject: `🛍️ New Order: ${orderNumber} — ৳${(body.total || 0).toLocaleString()}`,
       html: emailHtml,
     });
 
-    console.log("Order email sent successfully");
+    console.log("Order email sent successfully:", info.messageId);
+    return true;
   } catch (error) {
     console.error("Failed to send order email:", error);
-    // Don't throw - email failure shouldn't prevent order creation
+    return false;
   }
 }
 
@@ -134,10 +131,10 @@ export async function POST(request: NextRequest) {
       status: body.paymentMethod === "cod" ? "pending" : "paid",
     });
 
-    // Send email notification (async, don't wait for it)
-    sendOrderEmail(body, orderNumber);
+    // IMPORTANT: await the email so Vercel doesn't kill the function early
+    const emailSent = await sendOrderEmail(body, orderNumber);
 
-    return NextResponse.json({ orderNumber, success: true });
+    return NextResponse.json({ orderNumber, success: true, emailSent });
   } catch (error) {
     console.error("Order creation failed:", error);
     return NextResponse.json(
