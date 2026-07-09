@@ -16,7 +16,7 @@ export async function GET() {
       // orders table might not exist yet
     }
 
-    const [dresses, jewelry] = await db
+    const [dresses, jewelry, tshirts] = await db
       .insert(categories)
       .values([
         {
@@ -30,6 +30,12 @@ export async function GET() {
           slug: "jewelry",
           description: "Beautiful earrings and jewelry",
           image: "/images/bow-earring.jpeg",
+        },
+        {
+          name: "T-Shirts",
+          slug: "tshirts",
+          description: "Stylish t-shirts",
+          image: "/images/hero-banner.jpeg",
         },
       ])
       .returning();

@@ -99,11 +99,25 @@ export function Header() {
               Dresses
             </Link>
             <Link
+              href="/shop?category=tshirts"
+              onClick={() => handleClick("tshirts")}
+              className={`text-sm tracking-widest uppercase text-warm-600 hover:text-warm-900 transition-all active:scale-95 ${clickedItem === "tshirts" ? "scale-95 text-warm-900" : ""}`}
+            >
+              T-Shirts
+            </Link>
+            <Link
               href="/shop?category=jewelry"
               onClick={() => handleClick("jewelry")}
               className={`text-sm tracking-widest uppercase text-warm-600 hover:text-warm-900 transition-all active:scale-95 ${clickedItem === "jewelry" ? "scale-95 text-warm-900" : ""}`}
             >
               Jewelry
+            </Link>
+            <Link
+              href="/male-collection"
+              onClick={() => handleClick("male")}
+              className={`text-sm tracking-widest uppercase text-warm-600 hover:text-warm-900 transition-all active:scale-95 ${clickedItem === "male" ? "scale-95 text-warm-900" : ""}`}
+            >
+              Male Collection
             </Link>
           </nav>
 
@@ -160,7 +174,9 @@ export function Header() {
             {[
               { label: "Shop All", href: "/shop" },
               { label: "Dresses", href: "/shop?category=dresses" },
+              { label: "T-Shirts", href: "/shop?category=tshirts" },
               { label: "Jewelry", href: "/shop?category=jewelry" },
+              { label: "Male Collection", href: "/male-collection" },
             ].map((item) => (
               <Link
                 key={item.label}

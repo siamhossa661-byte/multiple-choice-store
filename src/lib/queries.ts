@@ -6,6 +6,7 @@ import { eq, desc, asc, sql, ilike, and, type SQL } from "drizzle-orm";
 const FALLBACK_CATEGORIES = [
   { id: 1, name: "Dresses", slug: "dresses", description: "Beautiful dresses", image: "https://i.ibb.co/0RJHGXRn/DB404-E0-B-C37-D-480-C-AF21-52550-FD3-F7-D0.jpg", createdAt: new Date() },
   { id: 2, name: "Jewelry", slug: "jewelry", description: "Beautiful earrings and jewelry", image: "/images/bow-earring.jpeg", createdAt: new Date() },
+  { id: 3, name: "T-Shirts", slug: "tshirts", description: "Stylish t-shirts", image: "/images/hero-banner.jpeg", createdAt: new Date() },
 ];
 
 // Fallback demo products
