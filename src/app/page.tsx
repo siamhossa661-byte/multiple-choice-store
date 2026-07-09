@@ -27,7 +27,7 @@ export default async function HomePage() {
   return (
     <>
       {/* Announcement Bar */}
-      <div className="bg-black text-white text-center py-2.5">
+      <div className="bg-warm-900 text-cream text-center py-2.5">
         <p className="text-xs tracking-[0.2em] uppercase">
           🎉 প্রথম ৫টি অর্ডারে ফ্রি ডেলিভারি! ✦ ঢাকায় ৳80 ✦ সারাদেশে ৳130
         </p>
@@ -47,7 +47,7 @@ export default async function HomePage() {
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="max-w-xl animate-fade-in">
-              <span className="inline-block text-xs tracking-[0.4em] uppercase text-neutral-200 mb-4">
+              <span className="inline-block text-xs tracking-[0.4em] uppercase text-warm-200 mb-4">
                 The New Collection
               </span>
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6">
@@ -55,14 +55,14 @@ export default async function HomePage() {
                 <br />
                 <em className="italic">Elegance</em>
               </h1>
-              <p className="text-neutral-200 text-base lg:text-lg mb-8 max-w-md leading-relaxed">
+              <p className="text-warm-200 text-base lg:text-lg mb-8 max-w-md leading-relaxed">
                 Discover pieces designed for the woman who chooses with
                 intention. Crafted from the finest materials, made to last.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/shop"
-                  className="inline-block px-10 py-4 bg-white text-neutral-900 text-sm tracking-widest uppercase font-medium hover:bg-neutral-100 transition-colors text-center"
+                  className="inline-block px-10 py-4 bg-white text-warm-900 text-sm tracking-widest uppercase font-medium hover:bg-warm-100 transition-colors text-center"
                 >
                   Shop Collection
                 </Link>
@@ -82,10 +82,10 @@ export default async function HomePage() {
       <section className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="text-xs tracking-[0.4em] uppercase text-neutral-500 mb-3 block">
+            <span className="text-xs tracking-[0.4em] uppercase text-warm-500 mb-3 block">
               Curated For You
             </span>
-            <h2 className="font-serif text-3xl lg:text-4xl text-neutral-900">
+            <h2 className="font-serif text-3xl lg:text-4xl text-warm-900">
               Shop by Collection
             </h2>
           </div>
@@ -116,7 +116,7 @@ export default async function HomePage() {
                   <h3 className="font-serif text-lg lg:text-2xl text-white mb-1">
                     {cat.name}
                   </h3>
-                  <span className="text-xs tracking-[0.3em] uppercase text-neutral-200 group-hover:text-white transition-colors">
+                  <span className="text-xs tracking-[0.3em] uppercase text-warm-200 group-hover:text-white transition-colors">
                     Discover →
                   </span>
                 </div>
@@ -127,20 +127,20 @@ export default async function HomePage() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-16 lg:py-24 bg-neutral-50">
+      <section className="py-16 lg:py-24 bg-warm-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-12">
             <div>
-              <span className="text-xs tracking-[0.4em] uppercase text-neutral-500 mb-3 block">
+              <span className="text-xs tracking-[0.4em] uppercase text-warm-500 mb-3 block">
                 Handpicked
               </span>
-              <h2 className="font-serif text-3xl lg:text-4xl text-neutral-900">
+              <h2 className="font-serif text-3xl lg:text-4xl text-warm-900">
                 Featured Pieces
               </h2>
             </div>
             <Link
               href="/shop"
-              className="hidden sm:inline-block text-sm tracking-widest uppercase text-neutral-600 hover:text-neutral-900 transition-colors border-b border-neutral-400 pb-0.5"
+              className="hidden sm:inline-block text-sm tracking-widest uppercase text-warm-600 hover:text-warm-900 transition-colors border-b border-warm-400 pb-0.5"
             >
               View All
             </Link>
@@ -162,7 +162,7 @@ export default async function HomePage() {
           <div className="sm:hidden text-center mt-8">
             <Link
               href="/shop"
-              className="text-sm tracking-widest uppercase text-neutral-600 hover:text-neutral-900 transition-colors border-b border-neutral-400 pb-0.5"
+              className="text-sm tracking-widest uppercase text-warm-600 hover:text-warm-900 transition-colors border-b border-warm-400 pb-0.5"
             >
               View All
             </Link>
@@ -182,7 +182,7 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-0 flex items-center justify-center text-center">
           <div className="max-w-xl px-4">
-            <span className="text-xs tracking-[0.4em] uppercase text-neutral-200 mb-4 block">
+            <span className="text-xs tracking-[0.4em] uppercase text-warm-200 mb-4 block">
               The Collection
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white mb-6 italic">
@@ -190,7 +190,7 @@ export default async function HomePage() {
             </h2>
             <Link
               href="/shop?category=dresses"
-              className="inline-block px-10 py-4 border border-white text-white text-sm tracking-widest uppercase font-medium hover:bg-white hover:text-neutral-900 transition-colors"
+              className="inline-block px-10 py-4 border border-white text-white text-sm tracking-widest uppercase font-medium hover:bg-white hover:text-warm-900 transition-colors"
             >
               Shop Dresses
             </Link>
@@ -210,7 +210,7 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center text-center">
           <div className="max-w-xl px-4">
-            <span className="text-xs tracking-[0.4em] uppercase text-neutral-200 mb-4 block">
+            <span className="text-xs tracking-[0.4em] uppercase text-warm-200 mb-4 block">
               The Jewelry Edit
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white mb-6 italic">
@@ -218,7 +218,7 @@ export default async function HomePage() {
             </h2>
             <Link
               href="/shop?category=jewelry"
-              className="inline-block px-10 py-4 border border-white text-white text-sm tracking-widest uppercase font-medium hover:bg-white hover:text-neutral-900 transition-colors"
+              className="inline-block px-10 py-4 border border-white text-white text-sm tracking-widest uppercase font-medium hover:bg-white hover:text-warm-900 transition-colors"
             >
               Shop Jewelry
             </Link>
@@ -227,20 +227,20 @@ export default async function HomePage() {
       </section>
 
       {/* Jewelry Products */}
-      <section className="py-16 lg:py-24 bg-neutral-50">
+      <section className="py-16 lg:py-24 bg-warm-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-12">
             <div>
-              <span className="text-xs tracking-[0.4em] uppercase text-neutral-500 mb-3 block">
+              <span className="text-xs tracking-[0.4em] uppercase text-warm-500 mb-3 block">
                 Earrings Collection
               </span>
-              <h2 className="font-serif text-3xl lg:text-4xl text-neutral-900">
+              <h2 className="font-serif text-3xl lg:text-4xl text-warm-900">
                 Jewelry
               </h2>
             </div>
             <Link
               href="/shop?category=jewelry"
-              className="hidden sm:inline-block text-sm tracking-widest uppercase text-neutral-600 hover:text-neutral-900 transition-colors border-b border-neutral-400 pb-0.5"
+              className="hidden sm:inline-block text-sm tracking-widest uppercase text-warm-600 hover:text-warm-900 transition-colors border-b border-warm-400 pb-0.5"
             >
               View All
             </Link>
@@ -268,10 +268,10 @@ export default async function HomePage() {
       <section className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="text-xs tracking-[0.4em] uppercase text-neutral-500 mb-3 block">
+            <span className="text-xs tracking-[0.4em] uppercase text-warm-500 mb-3 block">
               Most Loved
             </span>
-            <h2 className="font-serif text-3xl lg:text-4xl text-neutral-900">
+            <h2 className="font-serif text-3xl lg:text-4xl text-warm-900">
               Best Sellers
             </h2>
           </div>
@@ -294,20 +294,20 @@ export default async function HomePage() {
 
       {/* New Arrivals */}
       {newArrivals.length > 0 && (
-        <section className="py-16 lg:py-24 bg-neutral-100">
+        <section className="py-16 lg:py-24 bg-warm-100/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-end justify-between mb-12">
               <div>
-                <span className="text-xs tracking-[0.4em] uppercase text-neutral-500 mb-3 block">
+                <span className="text-xs tracking-[0.4em] uppercase text-warm-500 mb-3 block">
                   Just Arrived
                 </span>
-                <h2 className="font-serif text-3xl lg:text-4xl text-neutral-900">
+                <h2 className="font-serif text-3xl lg:text-4xl text-warm-900">
                   New In
                 </h2>
               </div>
               <Link
                 href="/shop"
-                className="hidden sm:inline-block text-sm tracking-widest uppercase text-neutral-600 hover:text-neutral-900 transition-colors border-b border-neutral-400 pb-0.5"
+                className="hidden sm:inline-block text-sm tracking-widest uppercase text-warm-600 hover:text-warm-900 transition-colors border-b border-warm-400 pb-0.5"
               >
                 View All
               </Link>
@@ -331,47 +331,47 @@ export default async function HomePage() {
       )}
 
       {/* Value Props */}
-      <section className="py-16 border-t border-neutral-200">
+      <section className="py-16 border-t border-warm-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-16 text-center">
             <div>
               <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-8 h-8 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-warm-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V15m0 0l-2.25 1.313M3 16.5v2.25m18-2.25v2.25" />
                 </svg>
               </div>
-              <h3 className="text-sm font-medium tracking-widest uppercase text-neutral-900 mb-2">
+              <h3 className="text-sm font-medium tracking-widest uppercase text-warm-900 mb-2">
                 Exceptional Quality
               </h3>
-              <p className="text-sm text-neutral-500 leading-relaxed">
+              <p className="text-sm text-warm-500 leading-relaxed">
                 Every piece is crafted from the finest materials, designed to become
                 a cherished part of your wardrobe.
               </p>
             </div>
             <div>
               <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-8 h-8 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-warm-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.125-.504 1.125-1.125v-2.896c0-.305-.124-.597-.345-.81l-2.957-2.847A1.875 1.875 0 0016.2 9.75H14.25m-3.75 9h3.75m0 0V5.625c0-.621-.504-1.125-1.125-1.125H5.25c-.621 0-1.125.504-1.125 1.125v12" />
                 </svg>
               </div>
-              <h3 className="text-sm font-medium tracking-widest uppercase text-neutral-900 mb-2">
+              <h3 className="text-sm font-medium tracking-widest uppercase text-warm-900 mb-2">
                 সারাদেশে ডেলিভারি
               </h3>
-              <p className="text-sm text-neutral-500 leading-relaxed">
+              <p className="text-sm text-warm-500 leading-relaxed">
                 ঢাকায় ৳80, সারাদেশে ৳130। প্রথম ৫টি অর্ডারে ফ্রি ডেলিভারি! Cash on Delivery, bKash, Nagad, Rocket
                 এ পেমেন্ট করুন।
               </p>
             </div>
             <div>
               <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-8 h-8 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-warm-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
                 </svg>
               </div>
-              <h3 className="text-sm font-medium tracking-widest uppercase text-neutral-900 mb-2">
+              <h3 className="text-sm font-medium tracking-widest uppercase text-warm-900 mb-2">
                 Personal Styling
               </h3>
-              <p className="text-sm text-neutral-500 leading-relaxed">
+              <p className="text-sm text-warm-500 leading-relaxed">
                 Our stylists are available to help you find the perfect pieces
                 for any occasion. Book a consultation today.
               </p>

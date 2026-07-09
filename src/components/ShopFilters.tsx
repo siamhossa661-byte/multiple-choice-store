@@ -43,7 +43,7 @@ export function ShopFilters({
         <select
           value={currentSort ?? ""}
           onChange={(e) => updateParam("sort", e.target.value || null)}
-          className="w-full px-4 py-3 border border-neutral-200 bg-cream text-sm text-neutral-900 focus:outline-none focus:border-warm-500"
+          className="w-full px-4 py-3 border border-warm-200 bg-cream text-sm text-warm-900 focus:outline-none focus:border-warm-500"
         >
           <option value="">Sort: Featured</option>
           <option value="newest">Sort: Newest</option>
@@ -55,7 +55,7 @@ export function ShopFilters({
 
       {/* Categories */}
       <div>
-        <h3 className="text-xs tracking-[0.3em] uppercase text-neutral-500 mb-4 font-medium">
+        <h3 className="text-xs tracking-[0.3em] uppercase text-warm-500 mb-4 font-medium">
           Category
         </h3>
         <ul className="space-y-2">
@@ -64,8 +64,8 @@ export function ShopFilters({
               onClick={() => updateParam("category", null)}
               className={`text-sm transition-colors ${
                 !currentCategory
-                  ? "text-neutral-900 font-medium"
-                  : "text-neutral-500 hover:text-neutral-900"
+                  ? "text-warm-900 font-medium"
+                  : "text-warm-500 hover:text-warm-900"
               }`}
             >
               All Products
@@ -77,8 +77,8 @@ export function ShopFilters({
                 onClick={() => updateParam("category", cat.slug)}
                 className={`text-sm transition-colors ${
                   currentCategory === cat.slug
-                    ? "text-neutral-900 font-medium"
-                    : "text-neutral-500 hover:text-neutral-900"
+                    ? "text-warm-900 font-medium"
+                    : "text-warm-500 hover:text-warm-900"
                 }`}
               >
                 {cat.name}
@@ -90,7 +90,7 @@ export function ShopFilters({
 
       {/* Sort - Desktop */}
       <div className="hidden lg:block">
-        <h3 className="text-xs tracking-[0.3em] uppercase text-neutral-500 mb-4 font-medium">
+        <h3 className="text-xs tracking-[0.3em] uppercase text-warm-500 mb-4 font-medium">
           Sort By
         </h3>
         <ul className="space-y-2">
@@ -106,8 +106,8 @@ export function ShopFilters({
                 onClick={() => updateParam("sort", opt.value || null)}
                 className={`text-sm transition-colors ${
                   (currentSort ?? "") === opt.value
-                    ? "text-neutral-900 font-medium"
-                    : "text-neutral-500 hover:text-neutral-900"
+                    ? "text-warm-900 font-medium"
+                    : "text-warm-500 hover:text-warm-900"
                 }`}
               >
                 {opt.label}
