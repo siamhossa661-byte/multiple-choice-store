@@ -36,7 +36,7 @@ export default async function HomePage() {
       {/* Hero Section */}
       <section className="relative h-[70vh] lg:h-[85vh] overflow-hidden">
         <Image
-          src="https://i.ibb.co/4ZxGgbX9/AF9-DADEF-06-B7-41-A4-9-B71-A583971-B94-DA.jpg"
+          src="/images/hero-banner.jpeg"
           alt="Multiple Choice fashion editorial"
           fill
           className="object-cover object-center"
