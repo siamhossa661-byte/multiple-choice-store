@@ -32,9 +32,9 @@ export function CheckoutForm() {
     setForm((prev) => ({ ...prev, [field]: value }));
 
   const paymentNumbers = {
-    bkash: "01XXXXXXXXX", // Replace with your bKash number
-    nagad: "01XXXXXXXXX", // Replace with your Nagad number
-    rocket: "01XXXXXXXXX", // Replace with your Rocket number
+    bkash: "01864589805",
+    nagad: "01864589805",
+    rocket: "01864589805",
   };
 
   const handleSubmitOrder = async () => {
