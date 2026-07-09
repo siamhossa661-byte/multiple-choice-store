@@ -198,6 +198,72 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Jewelry Section */}
+      <section className="relative h-[50vh] lg:h-[60vh] overflow-hidden">
+        <Image
+          src="/images/bow-earring.jpeg"
+          alt="Jewelry collection"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 flex items-center justify-center text-center">
+          <div className="max-w-xl px-4">
+            <span className="text-xs tracking-[0.4em] uppercase text-warm-200 mb-4 block">
+              The Jewelry Edit
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white mb-6 italic">
+              Shine & Sparkle
+            </h2>
+            <Link
+              href="/shop?category=jewelry"
+              className="inline-block px-10 py-4 border border-white text-white text-sm tracking-widest uppercase font-medium hover:bg-white hover:text-warm-900 transition-colors"
+            >
+              Shop Jewelry
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Jewelry Products */}
+      <section className="py-16 lg:py-24 bg-warm-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-end justify-between mb-12">
+            <div>
+              <span className="text-xs tracking-[0.4em] uppercase text-warm-500 mb-3 block">
+                Earrings Collection
+              </span>
+              <h2 className="font-serif text-3xl lg:text-4xl text-warm-900">
+                Jewelry
+              </h2>
+            </div>
+            <Link
+              href="/shop?category=jewelry"
+              className="hidden sm:inline-block text-sm tracking-widest uppercase text-warm-600 hover:text-warm-900 transition-colors border-b border-warm-400 pb-0.5"
+            >
+              View All
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
+            {productsData
+              .filter((p) => p.categorySlug === "jewelry")
+              .map((p, i) => {
+                const stats = reviewStats.get(p.product.id);
+                return (
+                  <ProductCard
+                    key={p.product.id}
+                    product={p.product}
+                    avgRating={stats?.avgRating}
+                    reviewCount={stats?.count}
+                    index={i}
+                  />
+                );
+              })}
+          </div>
+        </div>
+      </section>
+
       {/* Best Sellers */}
       <section className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
