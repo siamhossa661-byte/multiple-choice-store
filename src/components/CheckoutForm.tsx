@@ -85,7 +85,7 @@ export function CheckoutForm() {
           href="/shop"
           className="inline-block px-8 py-3 bg-warm-900 text-cream text-sm tracking-widest uppercase hover:bg-warm-800 transition-colors"
         >
-          Continue Shopping
+          শপিং চালিয়ে যান
         </Link>
       </div>
     );
@@ -125,7 +125,7 @@ export function CheckoutForm() {
           href="/shop"
           className="inline-block px-10 py-4 bg-warm-900 text-cream text-sm tracking-widest uppercase hover:bg-warm-800 transition-colors"
         >
-          Continue Shopping
+          শপিং চালিয়ে যান
         </Link>
       </div>
     );
@@ -244,7 +244,7 @@ export function CheckoutForm() {
               {freeDelivery.isFreeDeliveryActive && form.city ? (
                 <div>
                   <p className="text-sm text-green-800 font-medium">
-                    🎉 ডেলিভারি চার্জ: <span className="line-through">৳{baseShipping}</span> <span className="text-green-600 font-bold">FREE!</span>
+                    🎉 ডেলিভারি চার্জ: <span className="line-through">৳{baseShipping}</span> <span className="text-green-600 font-bold">ফ্রি!</span>
                   </p>
                   <p className="text-xs text-green-600 mt-1">
                     আপনি প্রথম ৫ জন কাস্টমারের একজন — ফ্রি ডেলিভারি পাচ্ছেন!
@@ -298,7 +298,7 @@ export function CheckoutForm() {
                   </div>
                   <div>
                     <p className="text-sm text-warm-900 font-medium">
-                      💵 Cash on Delivery
+                      💵 ক্যাশ অন ডেলিভারি
                     </p>
                     <p className="text-xs text-warm-500">পণ্য হাতে পেয়ে টাকা দিন</p>
                   </div>
@@ -324,7 +324,7 @@ export function CheckoutForm() {
                     <p className="text-sm text-warm-900 font-medium">
                       <span className="text-pink-500">bKash</span>
                     </p>
-                    <p className="text-xs text-warm-500">Send Money করুন</p>
+                    <p className="text-xs text-warm-500">সেন্ড মানি করুন</p>
                   </div>
                 </div>
               </label>
@@ -348,7 +348,7 @@ export function CheckoutForm() {
                     <p className="text-sm text-warm-900 font-medium">
                       <span className="text-orange-500">Nagad</span>
                     </p>
-                    <p className="text-xs text-warm-500">Send Money করুন</p>
+                    <p className="text-xs text-warm-500">সেন্ড মানি করুন</p>
                   </div>
                 </div>
               </label>
@@ -372,7 +372,7 @@ export function CheckoutForm() {
                     <p className="text-sm text-warm-900 font-medium">
                       <span className="text-purple-500">Rocket</span>
                     </p>
-                    <p className="text-xs text-warm-500">Send Money করুন</p>
+                    <p className="text-xs text-warm-500">সেন্ড মানি করুন</p>
                   </div>
                 </div>
               </label>
@@ -388,7 +388,7 @@ export function CheckoutForm() {
                 </h3>
                 <ol className="text-sm text-warm-700 space-y-2 list-decimal list-inside">
                   <li>
-                    আমাদের নম্বরে <span className="font-bold text-warm-900">৳{total.toLocaleString("en-BD")}</span> Send Money করুন
+                    আমাদের নম্বরে <span className="font-bold text-warm-900">৳{total.toLocaleString("en-BD")}</span> সেন্ড মানি করুন
                   </li>
                   <li>
                     নম্বর: <span className="font-bold text-warm-900">{paymentNumbers[paymentMethod]}</span>
@@ -432,14 +432,14 @@ export function CheckoutForm() {
                 onClick={() => setStep("information")}
                 className="px-6 py-4 text-sm tracking-widest uppercase text-warm-600 hover:text-warm-900 transition-colors"
               >
-                ← Back
+                ← পেছনে যান
               </button>
               <button
                 onClick={handleSubmitOrder}
                 disabled={submitting || (paymentMethod !== "cod" && (!form.transactionId || !form.senderNumber))}
                 className="flex-1 py-4 bg-warm-900 text-cream text-sm tracking-widest uppercase font-medium hover:bg-warm-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {submitting ? "Processing..." : "অর্ডার কনফার্ম করুন"}
+                {submitting ? "প্রসেস হচ্ছে..." : "অর্ডার কনফার্ম করুন"}
               </button>
             </div>
           </div>
@@ -450,7 +450,7 @@ export function CheckoutForm() {
       <div className="lg:col-span-2">
         <div className="bg-warm-50 p-6 lg:p-8 lg:sticky lg:top-28">
           <h3 className="font-serif text-lg text-warm-900 mb-6">
-            Order Summary
+            অর্ডারের বিবরণ
           </h3>
           <ul className="space-y-4 mb-6">
             {items.map((item) => (
@@ -488,17 +488,17 @@ export function CheckoutForm() {
           </ul>
           <div className="border-t border-warm-200 pt-4 space-y-3">
             <div className="flex justify-between text-sm">
-              <span className="text-warm-600">Subtotal</span>
+              <span className="text-warm-600">পণ্যের মূল্য</span>
               <span className="text-warm-900">৳{subtotal.toLocaleString("en-BD")}</span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-warm-600">Delivery</span>
+              <span className="text-warm-600">ডেলিভারি চার্জ</span>
               <span className="text-warm-900">
                 {form.city ? (
                   freeDelivery.isFreeDeliveryActive ? (
                     <span>
                       <span className="line-through text-warm-400 mr-1">৳{baseShipping}</span>
-                      <span className="text-green-600 font-bold">FREE</span>
+                      <span className="text-green-600 font-bold">ফ্রি</span>
                     </span>
                   ) : (
                     `৳${shipping}`
@@ -507,7 +507,7 @@ export function CheckoutForm() {
               </span>
             </div>
             <div className="border-t border-warm-200 pt-3 flex justify-between">
-              <span className="text-sm font-medium text-warm-900">Total</span>
+              <span className="text-sm font-medium text-warm-900">সর্বমোট</span>
               <span className="text-lg font-medium text-warm-900">
                 ৳{(form.city ? total : subtotal).toLocaleString("en-BD")}
               </span>
