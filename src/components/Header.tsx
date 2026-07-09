@@ -107,29 +107,18 @@ export function Header() {
             </Link>
           </nav>
 
-          {/* Logo with image */}
+          {/* Logo — "Multiple Choice" text (original style) */}
           <Link 
             href="/" 
             onClick={() => handleClick("logo")}
-            className={`flex items-center gap-2 transition-all active:scale-95 ${clickedItem === "logo" ? "scale-95" : ""}`}
+            className={`flex flex-col items-center transition-all active:scale-95 ${clickedItem === "logo" ? "scale-95" : ""}`}
           >
-            <div className="relative w-9 h-9 lg:w-12 lg:h-12 rounded-full overflow-hidden flex-shrink-0">
-              <Image
-                src="/images/logo.jpeg"
-                alt="Multiple Choice"
-                fill
-                className="object-cover"
-                sizes="48px"
-              />
-            </div>
-            <div className="flex flex-col items-start">
-              <span className="text-base lg:text-xl tracking-[0.15em] uppercase font-serif font-semibold text-warm-900 leading-tight">
-                Multiple Choice
-              </span>
-              <span className="text-[8px] lg:text-[9px] tracking-[0.3em] uppercase text-warm-500 hidden sm:block">
-                Fashion & Jewelry
-              </span>
-            </div>
+            <span className="text-xl lg:text-2xl tracking-[0.3em] uppercase font-serif font-semibold text-warm-900">
+              Multiple Choice
+            </span>
+            <span className="text-[10px] tracking-[0.5em] uppercase text-warm-500 -mt-0.5 hidden sm:block">
+              Fashion & Jewelry
+            </span>
           </Link>
 
           {/* Right actions */}

@@ -1,10 +1,32 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 export function Footer() {
   return (
     <footer className="bg-warm-900 text-warm-300">
+      {/* Brand Logo Section */}
+      <div className="border-b border-warm-700/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
+          <div className="relative w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden ring-2 ring-warm-600 ring-offset-2 ring-offset-warm-900">
+            <Image
+              src="/images/logo.jpeg"
+              alt="Multiple Choice"
+              fill
+              className="object-cover"
+              sizes="80px"
+            />
+          </div>
+          <h3 className="font-serif text-2xl lg:text-3xl text-warm-100 mb-1 tracking-[0.2em] uppercase">
+            Multiple Choice
+          </h3>
+          <p className="text-warm-400 text-sm tracking-widest">
+            Fashion & Jewelry
+          </p>
+        </div>
+      </div>
+
       {/* Newsletter section */}
       <div className="border-b border-warm-700/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
