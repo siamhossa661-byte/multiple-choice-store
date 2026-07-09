@@ -20,10 +20,18 @@ interface CartItem {
 }
 
 export default async function AdminOrdersPage() {
-  const allOrders = await db
-    .select()
-    .from(orders)
-    .orderBy(desc(orders.createdAt));
+  let allOrders: any[] = [];
+  let dbError = false;
+
+  try {
+    allOrders = await db
+      .select()
+      .from(orders)
+      .orderBy(desc(orders.createdAt));
+  } catch (error) {
+    console.error("Database error:", error);
+    dbError = true;
+  }
 
   const getPaymentMethodLabel = (method: string | null) => {
     switch (method) {
@@ -71,8 +79,25 @@ export default async function AdminOrdersPage() {
         </Link>
       </div>
 
-      {allOrders.length === 0 ? (
+      {dbError ? (
+        <div className="text-center py-20 bg-red-50 rounded-lg border border-red-200">
+          <p className="text-4xl mb-4">⚠️</p>
+          <p className="font-serif text-xl text-red-700 mb-2">
+            Database Connection Error
+          </p>
+          <p className="text-sm text-red-500 mb-4">
+            Could not connect to the database. Please check your DATABASE_URL in Vercel Environment Variables.
+          </p>
+          <a
+            href="/admin/orders"
+            className="inline-block px-6 py-2 bg-red-600 text-white text-sm rounded hover:bg-red-700 transition-colors"
+          >
+            Try Again
+          </a>
+        </div>
+      ) : allOrders.length === 0 ? (
         <div className="text-center py-20 bg-warm-50 rounded-lg">
+          <p className="text-4xl mb-4">📭</p>
           <p className="font-serif text-xl text-warm-700 mb-2">
             No orders yet
           </p>
@@ -84,10 +109,10 @@ export default async function AdminOrdersPage() {
         <div className="space-y-6">
           {allOrders.map((order) => {
             const items: CartItem[] = JSON.parse(order.items);
-            const paymentMethod = order.lastName; // We stored payment method in lastName
-            const phone = order.email; // We stored phone in email
-            const transactionId = order.zip; // We stored trxId in zip
-            const area = order.state; // We stored area in state
+            const paymentMethod = order.lastName;
+            const phone = order.email;
+            const transactionId = order.zip;
+            const area = order.state;
 
             return (
               <div
