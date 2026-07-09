@@ -1,48 +1,82 @@
-<img width="1284" height="2282" alt="AF9DADEF-06B7-41A4-9B71-A583971B94DA" src="https://github.com/user-attachments/assets/6af7d60e-71f5-4873-82d3-13542a04ce7e" />
-<img width="1284" height="2282" alt="CF8CDE58-65CE-4221-AAD2-387391BB11AE" src="https://github.com/user-attachments/assets/4bb4f0bc-469a-42b2-8636-8aaf1e76fefa" />
-<img width="1283" height="1906" alt="DB404E0B-C37D-480C-AF21-52550FD3F7D0" src="https://github.com/user-attachments/assets/e9950e97-c7df-4dd2-9d99-6d125dfc6de3" />
-# Multiple Choice — Bangladesh E-Commerce Store
+import { db } from "./index";
+import { categories, products, reviews } from "./schema";
 
-A beautiful e-commerce storefront for clothing and jewelry, built for Bangladesh with:
-- 💵 Cash on Delivery
-- 📱 bKash, Nagad, Rocket payments
-- 🏠 Dhaka & Outside Dhaka delivery rates
-- 📦 Admin orders dashboard
+async function seed() {
+  console.log("Seeding database...");
 
-## Deployment Guide
+  await db.delete(reviews);
+  await db.delete(products);
+  await db.delete(categories);
 
-### 1. Set up Neon Database
-1. Go to https://neon.tech and create a free account
-2. Create a new project
-3. Copy your database connection string
+  const [dresses] = await db
+    .insert(categories)
+    .values([
+      {
+        name: "Dresses",
+        slug: "dresses",
+        description: "Beautiful dresses for every occasion",
+        image: "https://i.ibb.co/0RJHGXRn/DB404-E0-B-C37-D-480-C-AF21-52550-FD3-F7-D0.jpg",
+      },
+    ])
+    .returning();
 
-### 2. Deploy to Vercel
-1. Push this code to GitHub
-2. Go to https://vercel.com
-3. Import your GitHub repository
-4. Add environment variable:
-   - Name: `DATABASE_URL`
-   - Value: Your Neon connection string
-5. Deploy!
+  await db
+    .insert(products)
+    .values([
+      {
+        name: "One Piece",
+        slug: "one-piece",
+        description: "স্টাইলিশ ওয়ান পিস ড্রেস। আরামদায়ক ও ট্রেন্ডি ডিজাইন। যেকোনো অনুষ্ঠানে পরতে পারবেন।",
+        price: "890",
+        categoryId: dresses.id,
+        images: JSON.stringify([
+          "https://i.ibb.co/0RJHGXRn/DB404-E0-B-C37-D-480-C-AF21-52550-FD3-F7-D0.jpg",
+        ]),
+        sizes: JSON.stringify(["40", "42", "44"]),
+        colors: JSON.stringify([]),
+        material: "",
+        featured: true,
+        bestSeller: true,
+        newArrival: true,
+        inStock: true,
+      },
+      {
+        name: "Two Piece",
+        slug: "two-piece",
+        description: "এলিগ্যান্ট টু পিস সেট। সুন্দর ডিজাইন ও আরামদায়ক ফেব্রিক। ক্যাজুয়াল ও ফর্মাল দুই ভাবেই পরা যায়।",
+        price: "1350",
+        categoryId: dresses.id,
+        images: JSON.stringify([
+          "https://i.ibb.co/4ZxGgbX9/AF9-DADEF-06-B7-41-A4-9-B71-A583971-B94-DA.jpg",
+        ]),
+        sizes: JSON.stringify(["40", "42", "44"]),
+        colors: JSON.stringify([]),
+        material: "",
+        featured: true,
+        bestSeller: true,
+        newArrival: true,
+        inStock: true,
+      },
+      {
+        name: "Premium Two Piece",
+        slug: "premium-two-piece",
+        description: "প্রিমিয়াম কোয়ালিটি টু পিস সেট। হাই-এন্ড ফেব্রিক ও ডিজাইন। বিশেষ অনুষ্ঠান ও পার্টির জন্য পারফেক্ট।",
+        price: "1750",
+        categoryId: dresses.id,
+        images: JSON.stringify([
+          "https://i.ibb.co/N4Ss5nc/CF8-CDE58-65-CE-4221-AAD2-387391-BB11-AE.jpg",
+        ]),
+        sizes: JSON.stringify(["40", "42", "44"]),
+        colors: JSON.stringify([]),
+        material: "",
+        featured: true,
+        bestSeller: false,
+        newArrival: true,
+        inStock: true,
+      },
+    ]);
 
-### 3. Seed the Database
-After deployment, run the seed script or access `/api/seed` to populate demo products.
+  console.log("Done! 3 products added.");
+}
 
-### 4. Configure Your Payment Numbers
-Edit `src/components/CheckoutForm.tsx` and update:
-```javascript
-const paymentNumbers = {
-  bkash: "01XXXXXXXXX",  // Your bKash number
-  nagad: "01XXXXXXXXX",  // Your Nagad number
-  rocket: "01XXXXXXXXX", // Your Rocket number
-};
-```
-
-## URLs
-- **Store:** `your-domain.vercel.app`
-- **Admin Orders:** `your-domain.vercel.app/admin/orders`
-
-## Customization
-- Products: Edit `src/db/seed.ts`
-- Delivery charges: Edit `src/components/CheckoutForm.tsx`
-- Store name: Edit `src/app/layout.tsx` and `src/components/Header.tsx`
+seed().catch(console.error);
