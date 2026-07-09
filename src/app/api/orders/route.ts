@@ -9,7 +9,7 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.EMAIL_USER || "siamhossa661@gmail.com",
-    pass: process.env.EMAIL_PASS || "",
+    pass: process.env.EMAIL_PASS || "nzrehmbcvmuxvsry",
   },
 });
 
@@ -24,10 +24,6 @@ interface CartItem {
 
 async function sendOrderEmail(body: any, orderNumber: string) {
   try {
-    if (!process.env.EMAIL_PASS) {
-      console.log("EMAIL_PASS not set, skipping email notification");
-      return;
-    }
 
     const items: CartItem[] = body.items || [];
     const itemsList = items
