@@ -113,7 +113,7 @@ export function Header() {
             onClick={() => handleClick("logo")}
             className={`flex items-center gap-2 transition-all active:scale-95 ${clickedItem === "logo" ? "scale-95" : ""}`}
           >
-            <div className="relative w-10 h-10 lg:w-12 lg:h-12 rounded-full overflow-hidden flex-shrink-0">
+            <div className="relative w-9 h-9 lg:w-12 lg:h-12 rounded-full overflow-hidden flex-shrink-0">
               <Image
                 src="/images/logo.jpeg"
                 alt="Multiple Choice"
@@ -122,11 +122,11 @@ export function Header() {
                 sizes="48px"
               />
             </div>
-            <div className="flex flex-col items-start hidden sm:flex">
-              <span className="text-lg lg:text-xl tracking-[0.2em] uppercase font-serif font-semibold text-warm-900 leading-tight">
+            <div className="flex flex-col items-start">
+              <span className="text-base lg:text-xl tracking-[0.15em] uppercase font-serif font-semibold text-warm-900 leading-tight">
                 Multiple Choice
               </span>
-              <span className="text-[9px] tracking-[0.4em] uppercase text-warm-500">
+              <span className="text-[8px] lg:text-[9px] tracking-[0.3em] uppercase text-warm-500 hidden sm:block">
                 Fashion & Jewelry
               </span>
             </div>
