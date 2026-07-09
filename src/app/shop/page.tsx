@@ -35,20 +35,20 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
       {/* Breadcrumb */}
-      <nav className="mb-6 text-sm text-warm-500">
-        <a href="/" className="hover:text-warm-900 transition-colors">
+      <nav className="mb-6 text-sm text-neutral-500">
+        <a href="/" className="hover:text-neutral-900 transition-colors">
           Home
         </a>
         <span className="mx-2">›</span>
-        <span className="text-warm-900">{title}</span>
+        <span className="text-neutral-900">{title}</span>
       </nav>
 
       {/* Header */}
       <div className="mb-8 lg:mb-12">
-        <h1 className="font-serif text-3xl lg:text-4xl text-warm-900 mb-2">
+        <h1 className="font-serif text-3xl lg:text-4xl text-neutral-900 mb-2">
           {title}
         </h1>
-        <p className="text-sm text-warm-500">
+        <p className="text-sm text-neutral-500">
           {productsData.length} {productsData.length === 1 ? "piece" : "pieces"}
         </p>
       </div>
@@ -68,10 +68,10 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
         <div className="flex-1">
           {productsData.length === 0 ? (
             <div className="text-center py-20">
-              <p className="font-serif text-xl text-warm-700 mb-2">
+              <p className="font-serif text-xl text-neutral-700 mb-2">
                 No products found
               </p>
-              <p className="text-sm text-warm-500">
+              <p className="text-sm text-neutral-500">
                 Try adjusting your filters or search terms.
               </p>
             </div>

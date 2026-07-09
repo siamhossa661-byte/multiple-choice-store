@@ -21,16 +21,16 @@ export function CartDrawer() {
       {/* Drawer */}
       <div className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-cream shadow-2xl animate-slide-in-right flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-warm-200">
-          <h2 className="font-serif text-xl text-warm-900">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-neutral-200">
+          <h2 className="font-serif text-xl text-neutral-900">
             Your Bag
-            <span className="text-warm-500 text-sm font-sans ml-2">
+            <span className="text-neutral-500 text-sm font-sans ml-2">
               ({itemCount})
             </span>
           </h2>
           <button
             onClick={closeCart}
-            className="p-2 -mr-2 text-warm-500 hover:text-warm-900 transition-colors"
+            className="p-2 -mr-2 text-neutral-500 hover:text-neutral-900 transition-colors"
             aria-label="Close cart"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -61,16 +61,16 @@ export function CartDrawer() {
                   d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
                 />
               </svg>
-              <p className="font-serif text-lg text-warm-700 mb-2">
+              <p className="font-serif text-lg text-neutral-700 mb-2">
                 Your bag is empty
               </p>
-              <p className="text-sm text-warm-500 mb-6">
+              <p className="text-sm text-neutral-500 mb-6">
                 Discover our curated collections
               </p>
               <Link
                 href="/shop"
                 onClick={closeCart}
-                className="px-8 py-3 bg-warm-900 text-cream text-sm tracking-widest uppercase hover:bg-warm-800 transition-colors"
+                className="px-8 py-3 bg-black text-cream text-sm tracking-widest uppercase hover:bg-neutral-800 transition-colors"
               >
                 Shop Now
               </Link>
@@ -84,7 +84,7 @@ export function CartDrawer() {
                     <Link
                       href={`/product/${item.slug}`}
                       onClick={closeCart}
-                      className="relative w-20 h-24 flex-shrink-0 bg-warm-100 overflow-hidden"
+                      className="relative w-20 h-24 flex-shrink-0 bg-neutral-100 overflow-hidden"
                     >
                       <Image
                         src={item.image}
@@ -98,20 +98,20 @@ export function CartDrawer() {
                       <Link
                         href={`/product/${item.slug}`}
                         onClick={closeCart}
-                        className="text-sm font-medium text-warm-900 hover:text-warm-700 transition-colors line-clamp-2"
+                        className="text-sm font-medium text-neutral-900 hover:text-neutral-700 transition-colors line-clamp-2"
                       >
                         {item.name}
                       </Link>
                       {(item.size || item.color) && (
-                        <p className="text-xs text-warm-500 mt-0.5">
+                        <p className="text-xs text-neutral-500 mt-0.5">
                           {[item.color, item.size].filter(Boolean).join(" / ")}
                         </p>
                       )}
-                      <p className="text-sm font-medium text-warm-900 mt-1">
+                      <p className="text-sm font-medium text-neutral-900 mt-1">
                         ৳{item.price.toLocaleString("en-BD")}
                       </p>
                       <div className="flex items-center justify-between mt-2">
-                        <div className="flex items-center border border-warm-200">
+                        <div className="flex items-center border border-neutral-200">
                           <button
                             onClick={() =>
                               updateQuantity(
@@ -121,11 +121,11 @@ export function CartDrawer() {
                                 item.color
                               )
                             }
-                            className="w-8 h-8 flex items-center justify-center text-warm-600 hover:text-warm-900 transition-colors"
+                            className="w-8 h-8 flex items-center justify-center text-neutral-600 hover:text-neutral-900 transition-colors"
                           >
                             −
                           </button>
-                          <span className="w-8 text-center text-sm text-warm-900">
+                          <span className="w-8 text-center text-sm text-neutral-900">
                             {item.quantity}
                           </span>
                           <button
@@ -137,7 +137,7 @@ export function CartDrawer() {
                                 item.color
                               )
                             }
-                            className="w-8 h-8 flex items-center justify-center text-warm-600 hover:text-warm-900 transition-colors"
+                            className="w-8 h-8 flex items-center justify-center text-neutral-600 hover:text-neutral-900 transition-colors"
                           >
                             +
                           </button>
@@ -146,7 +146,7 @@ export function CartDrawer() {
                           onClick={() =>
                             removeItem(item.productId, item.size, item.color)
                           }
-                          className="text-xs text-warm-500 hover:text-warm-900 underline transition-colors"
+                          className="text-xs text-neutral-500 hover:text-neutral-900 underline transition-colors"
                         >
                           Remove
                         </button>
@@ -161,26 +161,26 @@ export function CartDrawer() {
 
         {/* Footer */}
         {items.length > 0 && (
-          <div className="border-t border-warm-200 px-6 py-5 space-y-4">
+          <div className="border-t border-neutral-200 px-6 py-5 space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-sm text-warm-600">Subtotal</span>
-              <span className="text-lg font-medium text-warm-900">
+              <span className="text-sm text-neutral-600">Subtotal</span>
+              <span className="text-lg font-medium text-neutral-900">
                 ৳{subtotal.toLocaleString("en-BD")}
               </span>
             </div>
-            <p className="text-xs text-warm-500">
+            <p className="text-xs text-neutral-500">
               Shipping calculated at checkout
             </p>
             <Link
               href="/checkout"
               onClick={closeCart}
-              className="block w-full py-4 bg-warm-900 text-cream text-center text-sm tracking-widest uppercase font-medium hover:bg-warm-800 transition-colors"
+              className="block w-full py-4 bg-black text-cream text-center text-sm tracking-widest uppercase font-medium hover:bg-neutral-800 transition-colors"
             >
               Checkout
             </Link>
             <button
               onClick={closeCart}
-              className="block w-full py-3 text-center text-sm text-warm-600 tracking-widest uppercase hover:text-warm-900 transition-colors"
+              className="block w-full py-3 text-center text-sm text-neutral-600 tracking-widest uppercase hover:text-neutral-900 transition-colors"
             >
               Continue Shopping
             </button>

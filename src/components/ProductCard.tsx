@@ -45,7 +45,7 @@ export function ProductCard({
       style={{ animationFillMode: "forwards" }}
     >
       <Link href={`/product/${product.slug}`} className="block active:scale-[0.97] transition-transform duration-150">
-        <div className="relative aspect-[3/4] overflow-hidden bg-warm-100 mb-4 rounded-lg">
+        <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100 mb-4">
           <Image
             src={images[0] || ""}
             alt={product.name}
@@ -63,7 +63,7 @@ export function ProductCard({
             />
           )}
           {badge && (
-            <span className="absolute top-3 left-3 px-3 py-1 bg-warm-900 text-cream text-[10px] tracking-widest uppercase font-medium">
+            <span className="absolute top-3 left-3 px-3 py-1 bg-black text-white text-[10px] tracking-widest uppercase font-medium">
               {badge}
             </span>
           )}

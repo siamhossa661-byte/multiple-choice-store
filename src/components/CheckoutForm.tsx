@@ -78,12 +78,12 @@ export function CheckoutForm() {
   if (items.length === 0 && step !== "complete") {
     return (
       <div className="text-center py-20">
-        <p className="font-serif text-xl text-warm-700 mb-4">
+        <p className="font-serif text-xl text-neutral-700 mb-4">
           Your bag is empty
         </p>
         <Link
           href="/shop"
-          className="inline-block px-8 py-3 bg-warm-900 text-cream text-sm tracking-widest uppercase hover:bg-warm-800 transition-colors"
+          className="inline-block px-8 py-3 bg-black text-cream text-sm tracking-widest uppercase hover:bg-neutral-800 transition-colors"
         >
           Continue Shopping
         </Link>
@@ -109,21 +109,21 @@ export function CheckoutForm() {
             />
           </svg>
         </div>
-        <h2 className="font-serif text-3xl text-warm-900 mb-3">
+        <h2 className="font-serif text-3xl text-neutral-900 mb-3">
           অর্ডার সম্পন্ন হয়েছে!
         </h2>
-        <p className="text-lg text-warm-700 mb-2">
+        <p className="text-lg text-neutral-700 mb-2">
           Thank You for Your Order
         </p>
-        <p className="text-sm text-warm-600 mb-2">
+        <p className="text-sm text-neutral-600 mb-2">
           Order #{orderNum}
         </p>
-        <p className="text-sm text-warm-500 mb-8 max-w-sm mx-auto">
+        <p className="text-sm text-neutral-500 mb-8 max-w-sm mx-auto">
           আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব। আপনার পণ্য ২-৫ দিনের মধ্যে পৌঁছে যাবে।
         </p>
         <Link
           href="/shop"
-          className="inline-block px-10 py-4 bg-warm-900 text-cream text-sm tracking-widest uppercase hover:bg-warm-800 transition-colors"
+          className="inline-block px-10 py-4 bg-black text-cream text-sm tracking-widest uppercase hover:bg-neutral-800 transition-colors"
         >
           Continue Shopping
         </Link>
@@ -132,7 +132,7 @@ export function CheckoutForm() {
   }
 
   const inputClass =
-    "w-full px-4 py-3 border border-warm-200 bg-white text-sm text-warm-900 placeholder:text-warm-400 focus:outline-none focus:border-warm-500 transition-colors";
+    "w-full px-4 py-3 border border-neutral-200 bg-white text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-warm-500 transition-colors";
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
@@ -151,17 +151,17 @@ export function CheckoutForm() {
         )}
 
         {/* Steps */}
-        <div className="flex items-center gap-2 text-xs tracking-widest uppercase text-warm-500">
+        <div className="flex items-center gap-2 text-xs tracking-widest uppercase text-neutral-500">
           <span
             className={
-              step === "information" ? "text-warm-900 font-medium" : ""
+              step === "information" ? "text-neutral-900 font-medium" : ""
             }
           >
             Information
           </span>
           <span>›</span>
           <span
-            className={step === "payment" ? "text-warm-900 font-medium" : ""}
+            className={step === "payment" ? "text-neutral-900 font-medium" : ""}
           >
             Payment
           </span>
@@ -169,12 +169,12 @@ export function CheckoutForm() {
 
         {step === "information" && (
           <div className="space-y-6 animate-fade-in">
-            <h2 className="font-serif text-xl text-warm-900">
+            <h2 className="font-serif text-xl text-neutral-900">
               আপনার তথ্য দিন
             </h2>
             
             <div>
-              <label className="block text-xs text-warm-600 mb-1">নাম *</label>
+              <label className="block text-xs text-neutral-600 mb-1">নাম *</label>
               <input
                 type="text"
                 placeholder="আপনার সম্পূর্ণ নাম"
@@ -185,7 +185,7 @@ export function CheckoutForm() {
             </div>
 
             <div>
-              <label className="block text-xs text-warm-600 mb-1">ফোন নম্বর *</label>
+              <label className="block text-xs text-neutral-600 mb-1">ফোন নম্বর *</label>
               <input
                 type="tel"
                 placeholder="01XXXXXXXXX"
@@ -195,12 +195,12 @@ export function CheckoutForm() {
               />
             </div>
 
-            <h2 className="font-serif text-xl text-warm-900 pt-4">
+            <h2 className="font-serif text-xl text-neutral-900 pt-4">
               ডেলিভারি ঠিকানা
             </h2>
             
             <div>
-              <label className="block text-xs text-warm-600 mb-1">সম্পূর্ণ ঠিকানা *</label>
+              <label className="block text-xs text-neutral-600 mb-1">সম্পূর্ণ ঠিকানা *</label>
               <input
                 placeholder="বাড়ি নং, রোড নং, এলাকা"
                 value={form.address}
@@ -211,7 +211,7 @@ export function CheckoutForm() {
             
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs text-warm-600 mb-1">শহর *</label>
+                <label className="block text-xs text-neutral-600 mb-1">শহর *</label>
                 <select
                   value={form.city}
                   onChange={(e) => updateField("city", e.target.value)}
@@ -230,7 +230,7 @@ export function CheckoutForm() {
                 </select>
               </div>
               <div>
-                <label className="block text-xs text-warm-600 mb-1">এলাকা</label>
+                <label className="block text-xs text-neutral-600 mb-1">এলাকা</label>
                 <input
                   placeholder="থানা / এলাকার নাম"
                   value={form.area}
@@ -240,7 +240,7 @@ export function CheckoutForm() {
               </div>
             </div>
 
-            <div className={`p-4 rounded-lg ${freeDelivery.isFreeDeliveryActive ? "bg-green-50 border border-green-200" : "bg-warm-100"}`}>
+            <div className={`p-4 rounded-lg ${freeDelivery.isFreeDeliveryActive ? "bg-green-50 border border-green-200" : "bg-neutral-100"}`}>
               {freeDelivery.isFreeDeliveryActive && form.city ? (
                 <div>
                   <p className="text-sm text-green-800 font-medium">
@@ -251,7 +251,7 @@ export function CheckoutForm() {
                   </p>
                 </div>
               ) : (
-                <p className="text-sm text-warm-700">
+                <p className="text-sm text-neutral-700">
                   <span className="font-medium">ডেলিভারি চার্জ:</span>{" "}
                   {form.city ? (
                     <>
@@ -267,7 +267,7 @@ export function CheckoutForm() {
             <button
               onClick={() => setStep("payment")}
               disabled={!form.name || !form.phone || !form.address || !form.city}
-              className="w-full py-4 bg-warm-900 text-cream text-sm tracking-widest uppercase font-medium hover:bg-warm-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-4 bg-black text-cream text-sm tracking-widest uppercase font-medium hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               পেমেন্ট পদ্ধতি নির্বাচন করুন
             </button>
@@ -276,7 +276,7 @@ export function CheckoutForm() {
 
         {step === "payment" && (
           <div className="space-y-6 animate-fade-in">
-            <h2 className="font-serif text-xl text-warm-900">
+            <h2 className="font-serif text-xl text-neutral-900">
               পেমেন্ট পদ্ধতি নির্বাচন করুন
             </h2>
 
@@ -285,22 +285,22 @@ export function CheckoutForm() {
               <label 
                 className={`flex items-center justify-between p-4 border cursor-pointer transition-colors ${
                   paymentMethod === "cod" 
-                    ? "border-warm-900 bg-warm-900/5" 
-                    : "border-warm-200 hover:border-warm-400"
+                    ? "border-black bg-black/5" 
+                    : "border-neutral-200 hover:border-warm-400"
                 }`}
                 onClick={() => setPaymentMethod("cod")}
               >
                 <div className="flex items-center gap-3">
                   <div className={`w-4 h-4 border-2 rounded-full flex items-center justify-center ${
-                    paymentMethod === "cod" ? "border-warm-900" : "border-warm-300"
+                    paymentMethod === "cod" ? "border-black" : "border-warm-300"
                   }`}>
-                    {paymentMethod === "cod" && <div className="w-2 h-2 bg-warm-900 rounded-full" />}
+                    {paymentMethod === "cod" && <div className="w-2 h-2 bg-black rounded-full" />}
                   </div>
                   <div>
-                    <p className="text-sm text-warm-900 font-medium">
+                    <p className="text-sm text-neutral-900 font-medium">
                       💵 Cash on Delivery
                     </p>
-                    <p className="text-xs text-warm-500">পণ্য হাতে পেয়ে টাকা দিন</p>
+                    <p className="text-xs text-neutral-500">পণ্য হাতে পেয়ে টাকা দিন</p>
                   </div>
                 </div>
               </label>
@@ -310,7 +310,7 @@ export function CheckoutForm() {
                 className={`flex items-center justify-between p-4 border cursor-pointer transition-colors ${
                   paymentMethod === "bkash" 
                     ? "border-pink-500 bg-pink-50" 
-                    : "border-warm-200 hover:border-warm-400"
+                    : "border-neutral-200 hover:border-warm-400"
                 }`}
                 onClick={() => setPaymentMethod("bkash")}
               >
@@ -321,10 +321,10 @@ export function CheckoutForm() {
                     {paymentMethod === "bkash" && <div className="w-2 h-2 bg-pink-500 rounded-full" />}
                   </div>
                   <div>
-                    <p className="text-sm text-warm-900 font-medium">
+                    <p className="text-sm text-neutral-900 font-medium">
                       <span className="text-pink-500">bKash</span>
                     </p>
-                    <p className="text-xs text-warm-500">Send Money করুন</p>
+                    <p className="text-xs text-neutral-500">Send Money করুন</p>
                   </div>
                 </div>
               </label>
@@ -334,7 +334,7 @@ export function CheckoutForm() {
                 className={`flex items-center justify-between p-4 border cursor-pointer transition-colors ${
                   paymentMethod === "nagad" 
                     ? "border-orange-500 bg-orange-50" 
-                    : "border-warm-200 hover:border-warm-400"
+                    : "border-neutral-200 hover:border-warm-400"
                 }`}
                 onClick={() => setPaymentMethod("nagad")}
               >
@@ -345,10 +345,10 @@ export function CheckoutForm() {
                     {paymentMethod === "nagad" && <div className="w-2 h-2 bg-orange-500 rounded-full" />}
                   </div>
                   <div>
-                    <p className="text-sm text-warm-900 font-medium">
+                    <p className="text-sm text-neutral-900 font-medium">
                       <span className="text-orange-500">Nagad</span>
                     </p>
-                    <p className="text-xs text-warm-500">Send Money করুন</p>
+                    <p className="text-xs text-neutral-500">Send Money করুন</p>
                   </div>
                 </div>
               </label>
@@ -358,7 +358,7 @@ export function CheckoutForm() {
                 className={`flex items-center justify-between p-4 border cursor-pointer transition-colors ${
                   paymentMethod === "rocket" 
                     ? "border-purple-500 bg-purple-50" 
-                    : "border-warm-200 hover:border-warm-400"
+                    : "border-neutral-200 hover:border-warm-400"
                 }`}
                 onClick={() => setPaymentMethod("rocket")}
               >
@@ -369,10 +369,10 @@ export function CheckoutForm() {
                     {paymentMethod === "rocket" && <div className="w-2 h-2 bg-purple-500 rounded-full" />}
                   </div>
                   <div>
-                    <p className="text-sm text-warm-900 font-medium">
+                    <p className="text-sm text-neutral-900 font-medium">
                       <span className="text-purple-500">Rocket</span>
                     </p>
-                    <p className="text-xs text-warm-500">Send Money করুন</p>
+                    <p className="text-xs text-neutral-500">Send Money করুন</p>
                   </div>
                 </div>
               </label>
@@ -380,25 +380,25 @@ export function CheckoutForm() {
 
             {/* Payment Instructions for Mobile Banking */}
             {paymentMethod !== "cod" && (
-              <div className="bg-warm-100 p-5 rounded-lg space-y-3">
-                <h3 className="font-medium text-warm-900">
+              <div className="bg-neutral-100 p-5 rounded-lg space-y-3">
+                <h3 className="font-medium text-neutral-900">
                   {paymentMethod === "bkash" && "bKash"} 
                   {paymentMethod === "nagad" && "Nagad"} 
                   {paymentMethod === "rocket" && "Rocket"} পেমেন্ট নির্দেশনা:
                 </h3>
-                <ol className="text-sm text-warm-700 space-y-2 list-decimal list-inside">
+                <ol className="text-sm text-neutral-700 space-y-2 list-decimal list-inside">
                   <li>
-                    আমাদের নম্বরে <span className="font-bold text-warm-900">৳{total.toLocaleString("en-BD")}</span> Send Money করুন
+                    আমাদের নম্বরে <span className="font-bold text-neutral-900">৳{total.toLocaleString("en-BD")}</span> Send Money করুন
                   </li>
                   <li>
-                    নম্বর: <span className="font-bold text-warm-900">{paymentNumbers[paymentMethod]}</span>
+                    নম্বর: <span className="font-bold text-neutral-900">{paymentNumbers[paymentMethod]}</span>
                   </li>
                   <li>Transaction ID এবং আপনার নম্বর নিচে দিন</li>
                 </ol>
 
                 <div className="pt-3 space-y-3">
                   <div>
-                    <label className="block text-xs text-warm-600 mb-1">Transaction ID *</label>
+                    <label className="block text-xs text-neutral-600 mb-1">Transaction ID *</label>
                     <input
                       placeholder="TrxID লিখুন"
                       value={form.transactionId}
@@ -407,7 +407,7 @@ export function CheckoutForm() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs text-warm-600 mb-1">যে নম্বর থেকে পাঠিয়েছেন *</label>
+                    <label className="block text-xs text-neutral-600 mb-1">যে নম্বর থেকে পাঠিয়েছেন *</label>
                     <input
                       placeholder="01XXXXXXXXX"
                       value={form.senderNumber}
@@ -430,14 +430,14 @@ export function CheckoutForm() {
             <div className="flex gap-4">
               <button
                 onClick={() => setStep("information")}
-                className="px-6 py-4 text-sm tracking-widest uppercase text-warm-600 hover:text-warm-900 transition-colors"
+                className="px-6 py-4 text-sm tracking-widest uppercase text-neutral-600 hover:text-neutral-900 transition-colors"
               >
                 ← Back
               </button>
               <button
                 onClick={handleSubmitOrder}
                 disabled={submitting || (paymentMethod !== "cod" && (!form.transactionId || !form.senderNumber))}
-                className="flex-1 py-4 bg-warm-900 text-cream text-sm tracking-widest uppercase font-medium hover:bg-warm-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 py-4 bg-black text-cream text-sm tracking-widest uppercase font-medium hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {submitting ? "Processing..." : "অর্ডার কনফার্ম করুন"}
               </button>
@@ -448,8 +448,8 @@ export function CheckoutForm() {
 
       {/* Order Summary */}
       <div className="lg:col-span-2">
-        <div className="bg-warm-50 p-6 lg:p-8 lg:sticky lg:top-28">
-          <h3 className="font-serif text-lg text-warm-900 mb-6">
+        <div className="bg-neutral-50 p-6 lg:p-8 lg:sticky lg:top-28">
+          <h3 className="font-serif text-lg text-neutral-900 mb-6">
             Order Summary
           </h3>
           <ul className="space-y-4 mb-6">
@@ -458,7 +458,7 @@ export function CheckoutForm() {
                 key={`${item.productId}-${item.size}-${item.color}`}
                 className="flex gap-4"
               >
-                <div className="relative w-16 h-20 bg-warm-100 overflow-hidden flex-shrink-0">
+                <div className="relative w-16 h-20 bg-neutral-100 overflow-hidden flex-shrink-0">
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -466,38 +466,38 @@ export function CheckoutForm() {
                     className="object-cover"
                     sizes="64px"
                   />
-                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-warm-900 text-cream text-[10px] rounded-full flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-black text-cream text-[10px] rounded-full flex items-center justify-center">
                     {item.quantity}
                   </span>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm text-warm-900 font-medium line-clamp-2">
+                  <p className="text-sm text-neutral-900 font-medium line-clamp-2">
                     {item.name}
                   </p>
                   {(item.size || item.color) && (
-                    <p className="text-xs text-warm-500">
+                    <p className="text-xs text-neutral-500">
                       {[item.color, item.size].filter(Boolean).join(" / ")}
                     </p>
                   )}
                 </div>
-                <p className="text-sm text-warm-900 font-medium">
+                <p className="text-sm text-neutral-900 font-medium">
                   ৳{(item.price * item.quantity).toLocaleString("en-BD")}
                 </p>
               </li>
             ))}
           </ul>
-          <div className="border-t border-warm-200 pt-4 space-y-3">
+          <div className="border-t border-neutral-200 pt-4 space-y-3">
             <div className="flex justify-between text-sm">
-              <span className="text-warm-600">Subtotal</span>
-              <span className="text-warm-900">৳{subtotal.toLocaleString("en-BD")}</span>
+              <span className="text-neutral-600">Subtotal</span>
+              <span className="text-neutral-900">৳{subtotal.toLocaleString("en-BD")}</span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-warm-600">Delivery</span>
-              <span className="text-warm-900">
+              <span className="text-neutral-600">Delivery</span>
+              <span className="text-neutral-900">
                 {form.city ? (
                   freeDelivery.isFreeDeliveryActive ? (
                     <span>
-                      <span className="line-through text-warm-400 mr-1">৳{baseShipping}</span>
+                      <span className="line-through text-neutral-400 mr-1">৳{baseShipping}</span>
                       <span className="text-green-600 font-bold">FREE</span>
                     </span>
                   ) : (
@@ -506,9 +506,9 @@ export function CheckoutForm() {
                 ) : "—"}
               </span>
             </div>
-            <div className="border-t border-warm-200 pt-3 flex justify-between">
-              <span className="text-sm font-medium text-warm-900">Total</span>
-              <span className="text-lg font-medium text-warm-900">
+            <div className="border-t border-neutral-200 pt-3 flex justify-between">
+              <span className="text-sm font-medium text-neutral-900">Total</span>
+              <span className="text-lg font-medium text-neutral-900">
                 ৳{(form.city ? total : subtotal).toLocaleString("en-BD")}
               </span>
             </div>

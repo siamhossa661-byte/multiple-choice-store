@@ -36,10 +36,10 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-cream/95 backdrop-blur-md border-b border-warm-200/60">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-200">
       {/* Search Overlay */}
       {searchOpen && (
-        <div className="absolute inset-x-0 top-0 bg-white border-b border-warm-200 shadow-lg z-50 animate-slide-down">
+        <div className="absolute inset-x-0 top-0 bg-white border-b border-neutral-200 shadow-lg z-50 animate-slide-down">
           <form onSubmit={handleSearch} className="max-w-3xl mx-auto px-4 py-4 flex items-center gap-3">
             <svg className="w-5 h-5 text-warm-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -55,7 +55,7 @@ export function Header() {
             <button
               type="button"
               onClick={() => { setSearchOpen(false); setSearchQuery(""); }}
-              className="p-2 text-warm-500 hover:text-warm-900 active:scale-90 transition-all"
+              className="p-2 text-warm-500 hover:text-black active:scale-90 transition-all"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
@@ -70,7 +70,7 @@ export function Header() {
           {/* Mobile menu button */}
           <button
             onClick={() => { setMobileOpen(!mobileOpen); handleClick("menu"); }}
-            className={`lg:hidden p-2 -ml-2 text-warm-700 hover:text-warm-900 transition-all active:scale-90 ${clickedItem === "menu" ? "scale-90" : ""}`}
+            className={`lg:hidden p-2 -ml-2 text-neutral-700 hover:text-black transition-all active:scale-90 ${clickedItem === "menu" ? "scale-90" : ""}`}
             aria-label="Toggle menu"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -87,35 +87,35 @@ export function Header() {
             <Link
               href="/shop"
               onClick={() => handleClick("shop-all")}
-              className={`text-sm tracking-widest uppercase text-warm-600 hover:text-warm-900 transition-all active:scale-95 ${clickedItem === "shop-all" ? "scale-95 text-warm-900" : ""}`}
+              className={`text-sm tracking-widest uppercase text-neutral-600 hover:text-black transition-all active:scale-95 ${clickedItem === "shop-all" ? "scale-95 text-warm-900" : ""}`}
             >
               Shop All
             </Link>
             <Link
               href="/shop?category=dresses"
               onClick={() => handleClick("dresses")}
-              className={`text-sm tracking-widest uppercase text-warm-600 hover:text-warm-900 transition-all active:scale-95 ${clickedItem === "dresses" ? "scale-95 text-warm-900" : ""}`}
+              className={`text-sm tracking-widest uppercase text-neutral-600 hover:text-black transition-all active:scale-95 ${clickedItem === "dresses" ? "scale-95 text-warm-900" : ""}`}
             >
               Dresses
             </Link>
             <Link
               href="/shop?category=tshirts"
               onClick={() => handleClick("tshirts")}
-              className={`text-sm tracking-widest uppercase text-warm-600 hover:text-warm-900 transition-all active:scale-95 ${clickedItem === "tshirts" ? "scale-95 text-warm-900" : ""}`}
+              className={`text-sm tracking-widest uppercase text-neutral-600 hover:text-black transition-all active:scale-95 ${clickedItem === "tshirts" ? "scale-95 text-warm-900" : ""}`}
             >
               T-Shirts
             </Link>
             <Link
               href="/shop?category=jewelry"
               onClick={() => handleClick("jewelry")}
-              className={`text-sm tracking-widest uppercase text-warm-600 hover:text-warm-900 transition-all active:scale-95 ${clickedItem === "jewelry" ? "scale-95 text-warm-900" : ""}`}
+              className={`text-sm tracking-widest uppercase text-neutral-600 hover:text-black transition-all active:scale-95 ${clickedItem === "jewelry" ? "scale-95 text-warm-900" : ""}`}
             >
               Jewelry
             </Link>
             <Link
               href="/male-collection"
               onClick={() => handleClick("male")}
-              className={`text-sm tracking-widest uppercase text-warm-600 hover:text-warm-900 transition-all active:scale-95 ${clickedItem === "male" ? "scale-95 text-warm-900" : ""}`}
+              className={`text-sm tracking-widest uppercase text-neutral-600 hover:text-black transition-all active:scale-95 ${clickedItem === "male" ? "scale-95 text-warm-900" : ""}`}
             >
               Male Collection
             </Link>
@@ -127,10 +127,10 @@ export function Header() {
             onClick={() => handleClick("logo")}
             className={`flex flex-col items-center transition-all active:scale-95 ${clickedItem === "logo" ? "scale-95" : ""}`}
           >
-            <span className="text-xl lg:text-2xl tracking-[0.3em] uppercase font-serif font-semibold text-warm-900">
+            <span className="text-xl lg:text-2xl tracking-[0.3em] uppercase font-bold text-[#004D40]" style={{ fontFamily: "'Times New Roman', Times, serif" }}>
               Multiple Choice
             </span>
-            <span className="text-[10px] tracking-[0.5em] uppercase text-warm-500 -mt-0.5 hidden sm:block">
+            <span className="text-[10px] tracking-[0.5em] uppercase text-neutral-500 -mt-0.5 hidden sm:block">
               Fashion & Jewelry
             </span>
           </Link>
@@ -140,7 +140,7 @@ export function Header() {
             {/* Search button */}
             <button
               onClick={() => { setSearchOpen(true); handleClick("search"); }}
-              className={`p-2.5 text-warm-600 hover:text-warm-900 hover:bg-warm-100 rounded-full transition-all active:scale-90 ${clickedItem === "search" ? "scale-90 bg-warm-100" : ""}`}
+              className={`p-2.5 text-neutral-600 hover:text-black hover:bg-neutral-100 rounded-full transition-all active:scale-90 ${clickedItem === "search" ? "scale-90 bg-neutral-100" : ""}`}
               aria-label="Search"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -151,7 +151,7 @@ export function Header() {
             {/* Cart button */}
             <button
               onClick={() => { openCart(); handleClick("cart"); }}
-              className={`relative p-2.5 text-warm-600 hover:text-warm-900 hover:bg-warm-100 rounded-full transition-all active:scale-90 ${clickedItem === "cart" ? "scale-90 bg-warm-100" : ""}`}
+              className={`relative p-2.5 text-neutral-600 hover:text-black hover:bg-neutral-100 rounded-full transition-all active:scale-90 ${clickedItem === "cart" ? "scale-90 bg-neutral-100" : ""}`}
               aria-label="Open cart"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -169,7 +169,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-warm-200/60 bg-cream animate-slide-down">
+        <div className="lg:hidden border-t border-neutral-200/60 bg-cream animate-slide-down">
           <nav className="px-4 py-6 space-y-1">
             {[
               { label: "Shop All", href: "/shop" },
@@ -182,7 +182,7 @@ export function Header() {
                 key={item.label}
                 href={item.href}
                 onClick={() => { setMobileOpen(false); handleClick(item.label); }}
-                className={`block py-3 px-4 text-sm tracking-widest uppercase text-warm-700 hover:text-warm-900 hover:bg-warm-100 rounded-lg transition-all active:scale-[0.98] ${clickedItem === item.label ? "bg-warm-100 scale-[0.98]" : ""}`}
+                className={`block py-3 px-4 text-sm tracking-widest uppercase text-neutral-700 hover:text-black hover:bg-neutral-100 rounded-lg transition-all active:scale-[0.98] ${clickedItem === item.label ? "bg-neutral-100 scale-[0.98]" : ""}`}
               >
                 {item.label}
               </Link>
