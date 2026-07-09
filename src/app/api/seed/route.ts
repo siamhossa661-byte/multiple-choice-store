@@ -8,6 +8,14 @@ export async function GET() {
     await db.delete(products);
     await db.delete(categories);
 
+    // Also clear all orders to reset free delivery counter
+    try {
+      const { orders: ordersTable } = await import("@/db/schema");
+      await db.delete(ordersTable);
+    } catch (e) {
+      // orders table might not exist yet
+    }
+
     const [dresses, jewelry] = await db
       .insert(categories)
       .values([
