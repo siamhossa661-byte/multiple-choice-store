@@ -44,8 +44,8 @@ export function ProductCard({
       className={`group animate-fade-in opacity-0 stagger-${Math.min(index + 1, 6)}`}
       style={{ animationFillMode: "forwards" }}
     >
-      <Link href={`/product/${product.slug}`} className="block">
-        <div className="relative aspect-[3/4] overflow-hidden bg-warm-100 mb-4">
+      <Link href={`/product/${product.slug}`} className="block active:scale-[0.97] transition-transform duration-150">
+        <div className="relative aspect-[3/4] overflow-hidden bg-warm-100 mb-4 rounded-lg">
           <Image
             src={images[0] || ""}
             alt={product.name}
