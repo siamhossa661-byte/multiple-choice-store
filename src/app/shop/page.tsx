@@ -72,7 +72,9 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
                 No products found
               </p>
               <p className="text-sm text-warm-500">
-                Try adjusting your filters or search terms.
+                {currentCategory
+                  ? `Nothing in ${currentCategory.name} yet — new pieces are coming soon.`
+                  : "Try adjusting your filters or search terms."}
               </p>
             </div>
           ) : (

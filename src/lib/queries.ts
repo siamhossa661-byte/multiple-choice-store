@@ -179,6 +179,11 @@ export async function getProducts(opts?: {
   newArrival?: boolean;
   limit?: number;
 }) {
+  // Filters the visitor actively chose (category link or search box).
+  // An empty result for these is a REAL empty result — we must not silently
+  // show every product (e.g. the T-Shirts category has no products yet).
+  const hasUserFilters = Boolean(opts?.category || opts?.search);
+
   try {
     const conditions: SQL[] = [];
 
@@ -190,6 +195,11 @@ export async function getProducts(opts?: {
         .limit(1);
       if (cat[0]) {
         conditions.push(eq(products.categoryId, cat[0].id));
+      } else {
+        // Unknown category slug — never fall back to showing ALL products.
+        return FALLBACK_PRODUCTS.filter(
+          (p) => p.categorySlug === opts.category,
+        );
       }
     }
 
@@ -241,10 +251,15 @@ export async function getProducts(opts?: {
       .orderBy(orderBy)
       .limit(opts?.limit ?? 100);
 
-    return result.length > 0 ? result : FALLBACK_PRODUCTS;
+    // Only use the demo products when nothing was filtered out.
+    return result.length > 0
+      ? result
+      : hasUserFilters
+        ? []
+        : FALLBACK_PRODUCTS;
   } catch (err) {
     console.error("getProducts error, returning fallback:", err);
-    return FALLBACK_PRODUCTS;
+    return hasUserFilters ? [] : FALLBACK_PRODUCTS;
   }
 }
 
