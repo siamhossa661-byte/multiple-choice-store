@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
       },
     ],
     formats: ["image/avif", "image/webp"],
+    // Allow sharper-than-default (75) images for product photography
+    qualities: [75, 90],
   },
   async headers() {
     return [
