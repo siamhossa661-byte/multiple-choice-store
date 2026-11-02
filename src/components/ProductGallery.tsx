@@ -28,6 +28,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
           alt={`${productName} - Image ${selectedIndex + 1}`}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"
+          quality={90}
           sizes="(max-width: 1024px) 100vw, 50vw"
           priority
         />
@@ -51,6 +52,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
                 alt={`${productName} thumbnail ${i + 1}`}
                 fill
                 className="object-cover"
+                quality={90}
                 sizes="80px"
               />
             </button>

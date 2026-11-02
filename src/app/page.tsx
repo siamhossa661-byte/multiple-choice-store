@@ -43,6 +43,7 @@ export default async function HomePage() {
           fill
           className="object-cover object-center"
           priority
+          quality={90}
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/20" />
@@ -82,6 +83,7 @@ export default async function HomePage() {
                   alt={cat.name}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  quality={90}
                   sizes={
                     i === 0
                       ? "(max-width: 1024px) 100vw, 66vw"
@@ -150,10 +152,11 @@ export default async function HomePage() {
       {/* Editorial Banner */}
       <section className="relative h-[50vh] lg:h-[60vh] overflow-hidden">
         <Image
-          src="https://i.ibb.co/N4Ss5nc/CF8-CDE58-65-CE-4221-AAD2-387391-BB11-AE.jpg"
+          src="/images/premium-3.jpeg"
           alt="Dresses collection"
           fill
           className="object-cover object-center"
+          quality={90}
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/30" />
@@ -182,6 +185,7 @@ export default async function HomePage() {
           alt="Jewelry collection"
           fill
           className="object-cover object-center"
+          quality={90}
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/40" />

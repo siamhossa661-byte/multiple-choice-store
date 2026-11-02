@@ -4,7 +4,7 @@ import { eq, desc, asc, sql, ilike, and, type SQL } from "drizzle-orm";
 
 // Fallback demo categories
 const FALLBACK_CATEGORIES = [
-  { id: 1, name: "Dresses", slug: "dresses", description: "Beautiful dresses", image: "https://i.ibb.co/0RJHGXRn/DB404-E0-B-C37-D-480-C-AF21-52550-FD3-F7-D0.jpg", createdAt: new Date() },
+  { id: 1, name: "Dresses", slug: "dresses", description: "Beautiful dresses", image: "/images/premium-2.jpeg", createdAt: new Date() },
   { id: 2, name: "Jewelry", slug: "jewelry", description: "Beautiful earrings and jewelry", image: "/images/bow-earring.jpeg", createdAt: new Date() },
   { id: 3, name: "T-Shirts", slug: "tshirts", description: "Stylish t-shirts", image: "/images/hero-banner.jpeg", createdAt: new Date() },
 ];
@@ -21,7 +21,6 @@ const FALLBACK_PRODUCTS = [
       compareAtPrice: null,
       categoryId: 1,
       images: JSON.stringify([
-        "https://i.ibb.co/4ZxGgbX9/AF9-DADEF-06-B7-41-A4-9-B71-A583971-B94-DA.jpg",
         "/images/twopiece-2.jpeg",
         "/images/twopiece-3.jpeg",
         "/images/twopiece-4.jpeg",
@@ -48,7 +47,6 @@ const FALLBACK_PRODUCTS = [
       compareAtPrice: null,
       categoryId: 1,
       images: JSON.stringify([
-        "https://i.ibb.co/0RJHGXRn/DB404-E0-B-C37-D-480-C-AF21-52550-FD3-F7-D0.jpg",
         "/images/onepiece-2.jpeg",
         "/images/onepiece-3.jpeg",
         "/images/onepiece-4.jpeg",
@@ -75,7 +73,6 @@ const FALLBACK_PRODUCTS = [
       compareAtPrice: null,
       categoryId: 1,
       images: JSON.stringify([
-        "https://i.ibb.co/N4Ss5nc/CF8-CDE58-65-CE-4221-AAD2-387391-BB11-AE.jpg",
         "/images/premium-2.jpeg",
         "/images/premium-3.jpeg",
         "/images/premium-4.jpeg",

@@ -51,6 +51,7 @@ export function ProductCard({
             alt={product.name}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
+            quality={90}
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           />
           {images[1] && (
@@ -59,6 +60,7 @@ export function ProductCard({
               alt={`${product.name} alternate view`}
               fill
               className="object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              quality={90}
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
           )}
