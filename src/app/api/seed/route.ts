@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { db } from "@/db";
 import { categories, products, reviews } from "@/db/schema";
 
@@ -134,6 +135,9 @@ export async function GET() {
         inStock: true,
       },
     ]);
+
+    // Refresh the cached pages so new products show up immediately
+    revalidatePath("/", "layout");
 
     return NextResponse.json({ message: "Done! 6 products added!" });
   } catch (error) {

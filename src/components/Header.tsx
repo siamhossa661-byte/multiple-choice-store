@@ -36,7 +36,7 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-cream/95 backdrop-blur-md border-b border-warm-200/60">
+    <header className="sticky top-0 z-40 bg-cream border-b border-warm-200/60 lg:bg-cream/95 lg:backdrop-blur-md transform-gpu will-change-transform">
       {/* Search Overlay */}
       {searchOpen && (
         <div className="absolute inset-x-0 top-0 bg-white border-b border-warm-200 shadow-lg z-50 animate-slide-down">
@@ -172,6 +172,7 @@ export function Header() {
         <div className="lg:hidden border-t border-warm-200/60 bg-cream animate-slide-down">
           <nav className="px-4 py-6 space-y-1">
             {[
+              { label: "Home", href: "/" },
               { label: "Shop All", href: "/shop" },
               { label: "Dresses", href: "/shop?category=dresses" },
               { label: "T-Shirts", href: "/shop?category=tshirts" },

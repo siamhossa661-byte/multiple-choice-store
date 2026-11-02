@@ -3,7 +3,9 @@ import Link from "next/link";
 import { getProducts, getCategories, getReviewStatsForProducts } from "@/lib/queries";
 import { ProductCard } from "@/components/ProductCard";
 
-export const dynamic = "force-dynamic";
+// Cache the homepage for 60 seconds so it loads instantly instead of hitting
+// the database on every visit. Visiting /api/seed refreshes it immediately.
+export const revalidate = 60;
 
 export default async function HomePage() {
   const [productsData, categoriesData] = await Promise.all([
@@ -43,37 +45,12 @@ export default async function HomePage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-transparent" />
+        <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="max-w-xl animate-fade-in">
-              <span className="inline-block text-xs tracking-[0.4em] uppercase text-warm-200 mb-4">
-                The New Collection
-              </span>
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6">
-                Effortless
-                <br />
-                <em className="italic">Elegance</em>
-              </h1>
-              <p className="text-warm-200 text-base lg:text-lg mb-8 max-w-md leading-relaxed">
-                Discover pieces designed for the woman who chooses with
-                intention. Crafted from the finest materials, made to last.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/shop"
-                  className="inline-block px-10 py-4 bg-white text-warm-900 text-sm tracking-widest uppercase font-medium hover:bg-warm-100 transition-colors text-center"
-                >
-                  Shop Collection
-                </Link>
-                <Link
-                  href="/shop?category=dresses"
-                  className="inline-block px-10 py-4 border border-white text-white text-sm tracking-widest uppercase font-medium hover:bg-white/10 transition-colors text-center"
-                >
-                  Explore Dresses
-                </Link>
-              </div>
-            </div>
+            <h1 className="animate-fade-in font-serif text-3xl sm:text-4xl lg:text-5xl text-white tracking-[0.18em] uppercase">
+              New Collection
+            </h1>
           </div>
         </div>
       </section>
@@ -104,7 +81,7 @@ export default async function HomePage() {
                   src={cat.image || ""}
                   alt={cat.name}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes={
                     i === 0
                       ? "(max-width: 1024px) 100vw, 66vw"

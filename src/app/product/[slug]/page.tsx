@@ -12,7 +12,9 @@ import { StarRating } from "@/components/StarRating";
 import { ProductCard } from "@/components/ProductCard";
 import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
+// Cache each product page for 60 seconds (instant loading).
+// Visiting /api/seed refreshes product pages immediately.
+export const revalidate = 60;
 
 interface Props {
   params: Promise<{ slug: string }>;
